@@ -49,7 +49,7 @@ class OrderedVector:
         if self.index_last_element == -1:
             return -1
 
-        index_max = self.index_last_element
+        index_max = self.index_last_element + 1
         index_min = 0
 
         while index_min <= index_max:

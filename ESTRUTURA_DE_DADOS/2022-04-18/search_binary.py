@@ -1,21 +1,22 @@
 from utils import debug, timer
 
 @debug
-def searchBinary(listSearch, num):
-    number_item_max = len(listSearch)
-    number_item_min = 0
+def searchBinary(listSearch, value):
+    index_max = len(listSearch)
+    index_min = 0
 
-    while number_item_min <= number_item_max:
-        index = (number_item_min + number_item_max) // 2
-        n2 = listSearch[index]
-        print([n2, num])
-        if n2 == num:
-            return index
-        elif n2 < num:
-            number_item_min = index + 1
+    while index_min <= index_max:
+        index_mid = (index_min + index_max) // 2
+        item = listSearch[index_mid]
+
+        if item == value:
+            return index_mid
+        elif value > item:
+            index_min = index_mid + 1
         else:
-            number_item_max = index - 1
+            index_max = index_mid - 1
 
     return None
+   
 
-searchBinary([1, 3, 6, 10], 6)
+searchBinary(list(range(100)), 6)
