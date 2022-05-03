@@ -22,11 +22,22 @@ def checkExpression(expression: str):
   return my_stack.empty()
 
 tests = [
-  "dasda[]dasd(_dasd(])jkj",
-  "}",
-  "{}()[][({})]",
-  "a{b(c[d]e)f}"
+  ( "[]{}(){([])}", True ),
+  ( "{", False ),
+  ( "}", False ),
+  ( "as[]sdas(", False ),
+  ( "a[b{c(d)e}f]", True ),
+  ( "(]", False ),
+  ( "(}", False ),
+  ( "{)", False ),
+  ( "{]", False ),
+  ( "[)", False ),
+  ( "[}", False ),
+  ( "[b]b{a}a(a){b(b[dsadsa]b)b}b", True ),
 ]
 
-for test in tests:
-  print(test, checkExpression(test))
+for expression, expected_result in tests:
+  result = checkExpression(expression)
+  test_valid = result == expected_result
+
+  print(f"expression: '{expression}', expected_result: {expected_result}, result: {result}, test_valid: {test_valid}")
