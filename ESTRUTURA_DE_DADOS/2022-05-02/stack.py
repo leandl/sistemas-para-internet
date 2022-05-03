@@ -15,7 +15,7 @@ class Stack:
 
   def full(self): 
     new_index_last_element = self.index_last_element + 1
-    return new_index_last_element == self.max_elements + 1
+    return new_index_last_element == self.max_elements
 
   def empty(self):
     return self.index_last_element == -1
