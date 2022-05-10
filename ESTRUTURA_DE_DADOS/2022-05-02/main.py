@@ -36,8 +36,15 @@ tests = [
   ( "[b]b{a}a(a){b(b[dsadsa]b)b}b", True ),
 ]
 
+
+number_tests_invalid = 0
 for expression, expected_result in tests:
   result = checkExpression(expression)
   test_valid = result == expected_result
 
-  print(f"expression: '{expression}', expected_result: {expected_result}, result: {result}, test_valid: {test_valid}")
+  if not test_valid:
+    number_tests_invalid += 1 
+    print(f"expression: '{expression}', expected_result: {expected_result}, result: {result}, test_valid: {test_valid}")
+
+
+print(f"Number tests invalid: {number_tests_invalid}")
