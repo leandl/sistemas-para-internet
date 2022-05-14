@@ -119,7 +119,31 @@ WHERE duracao IN (SELECT MAX(duracao) FROM filmes);
 -- 15. Exibir o nome_diretor e a quantidade de filmes do diretor que mais dirigiu filmes e do
 -- diretor que menos dirigiu filmes. Existem alguns empates pois vários diretores dirigiram
 -- somente um filme. Portanto, o resultado pode ser diferente na segunda linha.
-
+SELECT D.nome_diretor, COUNT(F.cod_filme) as total
+FROM filmes F
+RIGHT JOIN diretores D ON D.cod_diretor = F.cod_diretor
+GROUP BY D.cod_diretor
+HAVING 
+  total IN (
+    SELECT MAX(table_qtd_max.qtd_filmes)
+    FROM (
+      SELECT COUNT(F.cod_filme) as qtd_filmes
+      FROM filmes F
+      RIGHT JOIN diretores D ON D.cod_diretor = F.cod_diretor
+      GROUP BY D.cod_diretor
+    ) table_qtd_max
+  )
+  OR 
+  total IN (
+    SELECT MIN(table_qtd_min.qtd_filmes)
+    FROM (
+      SELECT COUNT(F.cod_filme) as qtd_filmes
+      FROM filmes F
+      RIGHT JOIN diretores D ON D.cod_diretor = F.cod_diretor
+      GROUP BY D.cod_diretor
+    ) table_qtd_min
+  )
+ORDER BY total DESC;
 
 
 
