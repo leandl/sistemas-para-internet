@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=p*, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        body {
+            background-color: #212121;
+            color: #eee;
+        }
+
+        p, li {
+            padding: 10px;
+            text-align: justify;
+        }
+
+        ul + p {
+            background-color: rgb(91, 91, 196);
+        }
+
+        /* ul ~ p {
+            background-color: rgb(91, 91, 196);
+        } */
+
+        ul + p:hover {
+            background-color: rgb(228, 127, 87);
+            color: #212121;
+        }
+
+        p:not(ul + p) {
+            background-color: rgb(121, 201, 96);
+            color: #212121;
+        }
+
+        li:first-child {
+            font-weight: bolder;
+        }
+
+        /* li:nth-child(3)
+        li:nth-child(4n)
+        li:nth-child(even) */
+        li:nth-child(odd) {
+            color: rgb(91, 91, 196);
+            background-color: #ddd;
+        }
+
+        li:nth-child(4) {
+            font-style: italic;
+        }
+
+        p::first-letter {
+            font-size: 22px;
+        }
+
+        *::selection {
+            background-color: rgb(108, 159, 236);
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, est blanditiis in consectetur voluptatum ipsa fuga atque, ut incidunt nam expedita vel similique numquam quae, commodi necessitatibus inventore eveniet magni.</p>
+    <p>Neque natus nobis recusandae distinctio quas, expedita aperiam possimus consequatur saepe doloribus! Perspiciatis adipisci accusamus magnam ab at reprehenderit expedita, eveniet iste dignissimos, facere tempore ullam soluta, molestias recusandae nobis.</p>
+
+    <ul>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quisquam culpa rerum dicta. Ut hic aspernatur veniam. Quisquam repellat quidem possimus fugiat, distinctio atque eius fuga nihil dolor in error.</li>
+        <li>Quam ex aspernatur, recusandae amet, repellat tempore sed corrupti necessitatibus molestias sapiente maiores! Nemo aliquam unde est? Inventore rerum quos impedit molestias voluptate assumenda enim sint doloribus dolor? Dignissimos, accusamus?</li>
+        <li>Fuga pariatur voluptates laborum id recusandae nostrum molestias modi eveniet, ea perspiciatis consequatur iure eos voluptatum temporibus, enim maxime quas rem, necessitatibus quo deserunt minus exercitationem tenetur debitis similique? Obcaecati?</li>
+        <li>Provident corporis dignissimos laborum voluptate laudantium sed sunt, quia illo unde nam, ipsum harum dolor, et explicabo vero possimus rerum iusto itaque? Quia maxime nihil consectetur libero, totam laboriosam voluptatibus!</li>
+        <li>Praesentium perspiciatis reiciendis delectus voluptatum dolor excepturi maxime, non repudiandae, laudantium sequi ipsam quaerat. Totam expedita eius doloremque qui voluptatibus voluptatum, accusantium dolor deleniti sit autem vel. Odit, nam tempore.</li>
+    </ul>
+
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit facilis animi ad provident! Adipisci corporis a voluptates asperiores eius tempora, ex dolorum ea odit dolore, placeat, quaerat corrupti iusto?</p>
+    <p>Architecto beatae adipisci sunt corrupti rem ipsam saepe mollitia reiciendis. Id exercitationem molestias eum? Adipisci reprehenderit cumque dignissimos voluptate voluptatum accusantium obcaecati officiis aperiam architecto quibusdam quasi laboriosam, asperiores repudiandae.</p>
+</body>
+</html>

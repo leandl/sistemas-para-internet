@@ -1,0 +1,109 @@
+:root{
+    scroll-behavior: smooth;
+    --color-primary: #eb0a44;
+    
+    --color-secondary: #f2a73d;
+    --color-secondary-light: #f8ba63;
+
+    --color2: #f2643d;
+
+    --color-dark: #26251c;
+    --color-light: #f5faf7;
+
+
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: url("images/background.jpg");
+    background-repeat: repeat;
+    background-size: 600px;
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin:auto;
+    background-color: white;
+    min-height: 100vh;
+    line-height: 2em;
+}
+header, section, nav{
+    border-bottom: 1px solid #CCC;
+    padding: 10px 50px;
+}
+
+section{
+    min-height: 50vh;
+}
+
+header{
+    text-align: center;
+}
+
+table{
+    width: 100%;
+}
+
+/* ######################################### */
+
+nav a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:link {
+    color: var(--color-secondary); 
+} 
+
+nav a:hover {
+    color: var(--color-secondary-light);
+}
+
+
+nav a:active {
+    color: rgb(253, 253, 253);
+}
+
+nav a[href^="http"] {
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+nav a[href^="http"]:hover {
+    color: var(--color-secondary-light);
+}
+
+nav {
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+header {
+    background: linear-gradient(
+        0deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+}
+
+section:first-child {
+    color: var(--color-dark);
+}
+
+
+section:nth-child(2) {
+    color: var(--color-dark);
+    background-color: var(--color2);
+}
+
+img {
+    transition: transform 1s;
+}
+
+img:hover {
+    transform: rotate(360deg);
+}

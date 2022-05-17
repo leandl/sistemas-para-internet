@@ -1,0 +1,178 @@
+:root{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #d3d3d3;
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin:auto;
+    background-color: white;
+    min-height: 100vh;
+    line-height: 2em;
+}
+header, section, nav{
+    border-bottom: 1px solid #CCC;
+    padding: 10px 50px;
+}
+
+section{
+    min-height: 50vh;
+}
+
+header{
+    text-align: center;
+}
+
+table{
+    width: 100%;
+}
+/*
+* 
+Para esta atividade, você não deve alterar absolutamente nada o arquivo HTML.
+
+1 - formate os links como achar mais apropriado em seus estados (link, visited, hover, active)
+2 - os links devem estar lado a lado (display:inline ou inline-block)
+3 - a pizza do cheff está em falta, esconda esta linha da tabela (display:none)
+4 - faça a tabela ser listrada com cores diferentes
+5 - a primeira linha da tabela (cabeçalho) deve ser com uma cor destaque
+6 - cada seção deve ter uma cor de fundod diferente
+7 - Títulos devem possui cores diferentes em cada seção. No entanto, os parágrafos das seções devem ser de cores iguais.
+8 - adicione "R$" nos preços das pizzas
+9 - links externos devem possuir uma cor ligeiramente diferente (começa com http)
+10 - adicione "Rua" antes do nome da rua "Maria Aparecida Barbosa"
+11 - adicione "bairro antes de "Campo Duna"
+12 - adicione "Santa Catarina" após o nome da cidade (Garopaba)
+13 - ao passar o cursor sobre cada linha da tabela, ela deve ser "iluminada" com outra cor (menos o cabeçalho). 
+	 Dica: combinação de pseudo classes
+14 - o texto do endereço deve ser centralizado
+15 - Desenvolva 3 exemplos de uso de pseudo-classes que não foram demonstradas pelo professor
+16 - Desenvolva 2 exemplos de pseudo-elementos que não foram demonstradas pelo professor
+*/
+
+
+
+nav a {
+    text-decoration: none;
+}
+
+nav a:link {
+    color: rgb(197, 74, 74); 
+} 
+
+nav a:hover {
+    color: rgb(209, 198, 94);
+}
+
+
+nav a:active {
+    color: rgb(253, 253, 253);
+}
+
+nav a[href^="http"] {
+    color: rgb(255, 14, 14);
+}
+
+nav a[href^="http"] {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+
+nav a[href^="http"]:hover {
+    color: rgb(209, 198, 94);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+table tr:nth-child(4) {
+    visibility: hidden;
+}
+
+table tr:nth-child(4) {
+    display: none;
+}
+
+table tr:nth-child(3n) {
+    background-color: #bbbbbb;
+}
+
+table tr:first-child {
+    background-color: rgb(233, 235, 124);
+}
+
+section:nth-child(1) {
+    background-color: rgb(233, 235, 124);
+    color: #212121;
+    
+}
+
+section:nth-child(1) h1 {
+    color: rgb(197, 74, 74); 
+}
+
+section:nth-child(3) {
+    background-color: #212121;
+    color: #eee;
+}
+
+section:nth-child(3) h1 {
+    color: rgb(233, 235, 124); 
+}
+
+table tr:not(table tr:first-child) td:nth-child(2)::before {
+    content: "R$: ";
+}
+
+address p:first-child::before {
+    content: "Rua: ";
+}
+
+address p:nth-child(2)::before {
+    content: "Bairro: ";
+}
+
+address p:nth-child(3)::after {
+    content: ", Santa Catarina";
+}
+
+
+table tr:not(table tr:first-child):hover {
+    background-color: rgb(197, 74, 74);
+}
+
+address {
+    text-align: center;
+}
+
+
+img:only-child {
+    border-bottom: rgb(197, 74, 74) 2px solid;
+}
+
+:target {
+    border-bottom: #000 2px solid;
+}
+
+tr:nth-last-child(2) {
+    color: #3d8892;
+}
+
+
+section p::selection {
+    background-color: rgb(197, 74, 74);
+    color: #212121;
+}
+
+section p::first-letter {
+    font-size: 22px;
+}
