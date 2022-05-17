@@ -35,17 +35,17 @@ class PriorityQueue:
     
     new_index_last_element = self.index_last_element + 1
 
-    index_frist_more = self.__get_index_of_first_element_with_highest_priority(new_value)
-    if index_frist_more == -1 or index_frist_more == new_index_last_element:
-        self.elements[new_index_last_element] = new_value
-        self.index_last_element = new_index_last_element
-        return
+    index_first_more = self.__get_index_of_first_element_with_highest_priority(new_value)
+    if index_first_more == -1 or index_first_more == new_index_last_element:
+      self.elements[new_index_last_element] = new_value
+      self.index_last_element = new_index_last_element
+      return
 
     
-    for index in range(new_index_last_element, index_frist_more, -1):
-        self.elements[index] = self.elements[index - 1]
+    for index in range(new_index_last_element, index_first_more, -1):
+      self.elements[index] = self.elements[index - 1]
 
-    self.elements[index_frist_more] = new_value
+    self.elements[index_first_more] = new_value
     self.index_last_element = new_index_last_element
 
 
