@@ -1,0 +1,17 @@
+// Desafio 2
+@for $i from 1 to 9 {
+  .titulo-#{$i} {
+    font-size: if($i < 6, 30 - $i, 20 - $i);
+  }
+}
+
+// Desafio 3
+@mixin square($px, $color) {
+  width: $px;
+  height: $px;
+  color: $color;
+}
+
+div {
+  @include square(50px, #fff);
+}

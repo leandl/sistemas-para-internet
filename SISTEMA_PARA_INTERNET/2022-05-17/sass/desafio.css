@@ -1,0 +1,38 @@
+.titulo-1 {
+  font-size: 29;
+}
+
+.titulo-2 {
+  font-size: 28;
+}
+
+.titulo-3 {
+  font-size: 27;
+}
+
+.titulo-4 {
+  font-size: 26;
+}
+
+.titulo-5 {
+  font-size: 25;
+}
+
+.titulo-6 {
+  font-size: 14;
+}
+
+.titulo-7 {
+  font-size: 13;
+}
+
+.titulo-8 {
+  font-size: 12;
+}
+
+div {
+  width: 50px;
+  height: 50px;
+  color: #fff;
+}
+/*# sourceMappingURL=desafio.css.map */
