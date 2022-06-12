@@ -1,0 +1,16 @@
+header {
+  grid-template-columns: 1fr
+}
+
+header > .img {
+  display: none;
+}
+
+main {
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, minmax(100px, auto));
+  row-gap: 1rem;
+  grid-template-areas: 
+    "box1"
+    "box2";
+}
