@@ -7,6 +7,8 @@ SELECT I.nome, I.valor, C.nome as categoria
 FROM imovel I
 INNER JOIN categoria C ON C.id = I.categoria_id
 INNER JOIN municipio M ON M.id = I.municipio_id
-WHERE M.nome = "Imbituba";
+WHERE 
+  M.nome = "Imbituba" AND
+  I.finalidade = "aluguel";
 
 SELECT * FROM imoveis_em_imbituba;
