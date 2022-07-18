@@ -1,5 +1,5 @@
 import numpy as np
-from utils import debug, timer
+from utils import timer_algorithm_sort, timer_ordered_vector
 
 from ordered_vector import OrderedVector
 
@@ -19,16 +19,14 @@ algorithms = {
   "quick": lambda array: quick_sort(array, 0, len(array) -1)
 }
 
-@timer
-@debug
+@timer_ordered_vector
 def create_ordered_vector(array):
   ordered_vector = OrderedVector(5000)
 
   for element in array:
     ordered_vector.insert(element)
 
-@timer
-@debug
+@timer_algorithm_sort
 def sort(type_algorithm, array):
   algorithm_sort = algorithms.get(type_algorithm, None)
   if not algorithm_sort:

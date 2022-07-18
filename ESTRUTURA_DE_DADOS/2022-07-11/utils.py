@@ -20,3 +20,30 @@ def timer(func):
     print('==========================================')
     return _return
   return wrapper_timer
+
+
+def timer_algorithm_sort(func):
+  def wrapper_timer_algorithm_sort(*args, **kwargs):
+    args_repr = [repr(a) for a in args]
+    type_algorithm = args_repr[0]
+
+    start_time = timeit.default_timer()
+    _return = func(*args, **kwargs)
+    end_time = timeit.default_timer()
+    duration = end_time - start_time
+
+    print(f"Algorithm: {type_algorithm} Duration: {duration}")
+    return _return
+  return wrapper_timer_algorithm_sort
+
+def timer_ordered_vector(func):
+  def wrapper_timer_ordered_vector(*args, **kwargs):
+
+    start_time = timeit.default_timer()
+    _return = func(*args, **kwargs)
+    end_time = timeit.default_timer()
+    duration = end_time - start_time
+    
+    print(f"Algorithm: OrderedVector Duration: {duration}")
+    return _return
+  return wrapper_timer_ordered_vector
