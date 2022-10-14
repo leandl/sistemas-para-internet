@@ -1,4 +1,4 @@
-from entries.product import Product
+from entities.product import Product
 
 class ProductQuantityException(Exception):
   pass

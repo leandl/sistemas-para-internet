@@ -1,8 +1,8 @@
 from typing import List
 
-from entries.address import Address
-from entries.little_car import LittleCar
-from entries.user import User
+from entities.address import Address
+from entities.little_car import LittleCar
+from entities.user import User
 
 class ClientException(Exception):
   pass

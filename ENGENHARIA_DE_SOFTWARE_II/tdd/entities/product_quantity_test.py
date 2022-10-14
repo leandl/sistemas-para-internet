@@ -1,6 +1,6 @@
 import pytest
-from entries.product import Product
-from entries.product_quantity import ProductQuantity, ProductQuantityException
+from entities.product import Product
+from entities.product_quantity import ProductQuantity, ProductQuantityException
 
 TESTS_QUANTITY_INVALID = ( 0, -1, -2, -10 ) 
 TEST_PRODUCT = Product(

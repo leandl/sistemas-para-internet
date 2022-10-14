@@ -1,6 +1,6 @@
-from entries.little_car import LittleCar
-from entries.product import Product
-from entries.product_quantity import ProductQuantity
+from entities.little_car import LittleCar
+from entities.product import Product
+from entities.product_quantity import ProductQuantity
 
 
 if __name__ == "__main__":

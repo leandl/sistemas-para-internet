@@ -2,10 +2,10 @@ from typing import List
 
 from datetime import datetime
 
-from entries.address import Address
-from entries.client import Client
-from entries.product_quantity import ProductQuantity
-from entries.status_order import StatusOrder
+from entities.address import Address
+from entities.client import Client
+from entities.product_quantity import ProductQuantity
+from entities.status_order import StatusOrder
 
 class Order:
 

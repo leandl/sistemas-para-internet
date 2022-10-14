@@ -1,6 +1,6 @@
 import pytest
 
-from entries.product import Product
+from entities.product import Product
 
 TEST_PRODUCT = {
   "name": "MILK 1L", 

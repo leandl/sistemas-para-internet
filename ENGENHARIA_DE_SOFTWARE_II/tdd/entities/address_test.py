@@ -1,5 +1,5 @@
 import pytest
-from entries.address import Address
+from entities.address import Address
 
 
 def test_create_address():

@@ -1,6 +1,6 @@
 from typing import List
 
-from entries.product_quantity import ProductQuantity
+from entities.product_quantity import ProductQuantity
 
 class LittleCar:
 

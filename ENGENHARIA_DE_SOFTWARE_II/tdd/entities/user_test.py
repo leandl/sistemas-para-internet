@@ -1,5 +1,5 @@
 import pytest
-from entries.user import User
+from entities.user import User
 
 TEST_USER = {
   "name": "user-test", 
