@@ -1,6 +1,6 @@
 from entries.product import Product
 
-class ProductQauntityException(Exception):
+class ProductQuantityException(Exception):
   pass
 
 class ProductQuantity:
@@ -18,17 +18,17 @@ class ProductQuantity:
   def __valid_product_quantity(self, quantity: int) -> None:
     MIN_PRODUCT_QUANTITY = 1
 
-    if quantity < MIN_PRODUCT_QUANTITY:
-      raise ProductQauntityException("Quatity invalid!!")
+    if not quantity >= MIN_PRODUCT_QUANTITY:
+      raise ProductQuantityException("QUANTITY INVALID: 'quantity' must be greater than zero")
 
   def get_product(self) -> Product:
-    self.__product
+    return self.__product
 
   def set_product(self, product: Product) -> None:
     self.__product = product
 
   def get_quantity(self) -> int:
-    self.__quantity
+    return self.__quantity
 
   def set_quantity(self, quantity: int) -> None:
     self.__valid_product_quantity(quantity)
@@ -36,4 +36,4 @@ class ProductQuantity:
     self.__quantity = quantity
   
   def get_name(self) -> str:
-    self.__product.get_name()
+    return self.__product.get_name()

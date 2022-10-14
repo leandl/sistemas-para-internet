@@ -14,25 +14,25 @@ class Product:
     self.__path_image = path_image
 
   def get_name(self) -> str:
-    self.__name
+    return self.__name
 
   def set_name(self, name: str) -> None:
     self.__name = name
 
   def get_price(self) -> float:
-    self.__price
+    return self.__price
 
   def set_price(self, price: float) -> None:
     self.__price = price
 
   def get_description(self) -> str:
-    self.__description
+    return self.__description
 
   def set_description(self, description: str) -> None:
     self.__description = description
 
   def get_path_image(self) -> str:
-    self.__path_image
+    return self.__path_image
 
   def set_path_image(self, path_image: str) -> None:
     self.__path_image = path_image
