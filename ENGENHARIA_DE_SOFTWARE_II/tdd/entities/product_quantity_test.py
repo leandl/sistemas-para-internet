@@ -24,6 +24,7 @@ def test_create_product_quantity():
   assert product_quantity.get_quantity() == TEST_QUANTITY
   assert product_quantity.get_product() == TEST_PRODUCT
   assert product_quantity.get_name() == TEST_PRODUCT.get_name()
+  assert product_quantity.get_price() == TEST_PRODUCT.get_price() * TEST_QUANTITY
 
 
 @pytest.mark.parametrize("quantity_invalid", TESTS_QUANTITY_INVALID)
@@ -43,6 +44,7 @@ def test_change_data_of_product_quantity():
   assert product_quantity.get_quantity() == TEST_NEW_QUANTITY
   assert product_quantity.get_product() == TEST_NEW_PRODUCT
   assert product_quantity.get_name() == TEST_NEW_PRODUCT.get_name()
+  assert product_quantity.get_price() == TEST_NEW_PRODUCT.get_price() * TEST_NEW_QUANTITY
 
 
 @pytest.mark.parametrize("quantity_invalid", TESTS_QUANTITY_INVALID)

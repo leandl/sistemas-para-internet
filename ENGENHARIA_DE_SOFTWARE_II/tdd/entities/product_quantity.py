@@ -16,10 +16,8 @@ class ProductQuantity:
     self.__quantity = quantity
 
   def __valid_product_quantity(self, quantity: int) -> None:
-    MIN_PRODUCT_QUANTITY = 1
-
-    if not quantity >= MIN_PRODUCT_QUANTITY:
-      raise ProductQuantityException("QUANTITY INVALID: 'quantity' must be greater than zero")
+    if not quantity > 0:
+      raise ProductQuantityException("INVALID QUANTITY: 'quantity' must be greater than zero")
 
   def get_product(self) -> Product:
     return self.__product
@@ -37,3 +35,9 @@ class ProductQuantity:
   
   def get_name(self) -> str:
     return self.__product.get_name()
+
+  def get_price(self) -> float:
+    return self.__quantity * self.__product.get_price()
+
+  def __str__(self) -> str:
+    return f"ProductQuantity(product: {self.__product}, quantity: {self.__quantity})"

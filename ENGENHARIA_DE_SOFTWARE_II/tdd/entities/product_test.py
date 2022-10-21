@@ -1,6 +1,6 @@
 import pytest
 
-from entities.product import Product
+from entities.product import Product, ProductException
 
 TEST_PRODUCT = {
   "name": "MILK 1L", 
@@ -16,6 +16,8 @@ TEST_NEW_PRODUCT = {
   "path-image": "new-path-image"
 }
 
+TEST_PRICES_INVALID = (0, -1, -10, -20)
+
 def test_create_product():
   product = Product(
     TEST_PRODUCT["name"],
@@ -29,6 +31,15 @@ def test_create_product():
   assert product.get_description() == TEST_PRODUCT["description"]
   assert product.get_path_image() == TEST_PRODUCT["path-image"]
 
+@pytest.mark.parametrize("price_invalid", TEST_PRICES_INVALID)
+def test_create_product_error_price_invalid(price_invalid): 
+  with pytest.raises(ProductException):
+    Product(
+      TEST_PRODUCT["name"],
+      price_invalid,
+      TEST_PRODUCT["description"],
+      TEST_PRODUCT["path-image"]
+    )
 
 def test_change_data_of_product():
   product = Product(
@@ -47,3 +58,16 @@ def test_change_data_of_product():
   assert product.get_price() == TEST_NEW_PRODUCT["price"]
   assert product.get_description() == TEST_NEW_PRODUCT["description"]
   assert product.get_path_image() == TEST_NEW_PRODUCT["path-image"]
+
+@pytest.mark.parametrize("price_invalid", TEST_PRICES_INVALID)
+def test_change_data_of_product_error_price_invalid(price_invalid):
+  product = Product(
+    TEST_PRODUCT["name"],
+    TEST_PRODUCT["price"],
+    TEST_PRODUCT["description"],
+    TEST_PRODUCT["path-image"]
+  )
+
+  with pytest.raises(ProductException):
+    product.set_price(price_invalid)
+

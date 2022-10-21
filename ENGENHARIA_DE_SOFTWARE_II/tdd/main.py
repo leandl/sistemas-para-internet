@@ -9,4 +9,4 @@ if __name__ == "__main__":
   product = Product("arroz", 1.2, "description", "path_image")
   myLittleCar = LittleCar()
 
-  LittleCar.add_product(ProductQuantity(product, 2))
+  myLittleCar.add_product(ProductQuantity(product, 2))

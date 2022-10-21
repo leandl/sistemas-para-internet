@@ -8,3 +8,6 @@ class Address:
 
   def set_address(self, address: str) -> None:
     self.__address = address
+
+  def __str__(self) -> str:
+    return f"Address({self.__address})"

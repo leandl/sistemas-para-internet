@@ -8,7 +8,7 @@ def test_create_address():
   address = Address(TEST_ADDRESS)
   assert address.get_address() == TEST_ADDRESS
   
-def test_create_address():
+def test_change_data_address():
   TEST_ADDRESS = "TEST ADDRESS"
   TEST_NEW_ADDRESS = "TEST NEW ADDRESS"
 
