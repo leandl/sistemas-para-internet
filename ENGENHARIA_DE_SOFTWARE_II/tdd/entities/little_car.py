@@ -17,11 +17,7 @@ class LittleCar:
       raise LittleCarException("PRODUCT NOT FOUND: 'product' not found exists in little car")
 
 
-
-  def __get_products_without(
-    self,
-    product_quantity: ProductQuantity
-  ) -> List[ProductQuantity]:
+  def __get_products_without(self, product_quantity: ProductQuantity) -> List[ProductQuantity]:
     product_name = product_quantity.get_name()
 
     return [
@@ -29,7 +25,6 @@ class LittleCar:
       for current_product_quantity in self.__products
       if current_product_quantity.get_name() != product_name
     ]
-
 
   def remove_product(self, product_quantity: ProductQuantity) -> None:
     self.__valid_product_exists(product_quantity)
@@ -39,7 +34,6 @@ class LittleCar:
     new_products = self.__get_products_without(product_quantity)
     new_products.append(product_quantity)
 
-    print(new_products)
     self.__products = new_products
 
   def get_products(self) -> List[ProductQuantity]:
