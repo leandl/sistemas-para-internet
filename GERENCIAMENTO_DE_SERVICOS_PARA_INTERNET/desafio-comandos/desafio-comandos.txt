@@ -1,0 +1,31 @@
+
+----------------------------------------------------Nivel 1------------------------------------------------------
+				Verificação, instalação, criação de arquivos pastas
+
+
+a. Verifique qual a configuração completa: Processador, Memória, Discos e SO.
+lscpu
+inxi -v7
+cat /proc/meminfo
+cat /proc/cpuinfo
+
+ 
+b. Alterar data e hora do sistema para 07/03/2023 19:20 horas.
+date -s "2014-12-25 $(date +%H:%M:%S)"
+timedatectl set-time "2015-12-01"
+
+c. Atualizar repositório de pacotes, fazer uma atualização completa do sistema.
+apt-get update
+apt-get upgrade
+
+d. Instalar os pacotes neofetch, htop, gimp com o gerenciador de pacotes apt
+apt-get neofetch
+apt-get htop
+apt-get gimp
+
+
+e. Remover o pacote Gimp e todas as suas configurações com uso do apt.
+f. Incluir o neofetch para inicializar automaticamente cada vez que abrir o terminal.
+g. Navegue na estrutura de diretório para se chegar na área de trabalho do usuário, crie
+uma pasta chamada projetos e adicione um arquivo de index.html nesta pasta
+h. Programar o computador para desligar automaticamente as 21:50 h.
