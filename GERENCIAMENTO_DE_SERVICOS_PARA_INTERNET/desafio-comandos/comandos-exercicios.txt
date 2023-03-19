@@ -1,0 +1,70 @@
+EXERCÍCIOS COMANDO LINUX
+
+1) Qual o comando utilizado para instalar o paconte neofetch, estando logado como usuário.
+sudo apt install neofetch
+
+2) Inclua este pacote para inicializar toda vez que o usuário logado abrir o terminal.
+echo "neofetch" >> /home/usuario/.bashrc
+
+3) Consultar e encerrar este processo pela a linha de comando.
+ps aux | grep <nome do processo>
+kill <PID do processo>
+
+4) Criar uma subpasta na home do usuario chamado meusite/projeto.
+mkdir -p ~/meusite/projeto
+
+5) Carregar uma página da internet para dentro deste subdiretório.
+echo "<h1>oi</h1>" > ~/meusite/projeto/index.html
+
+6) Definir permissão dos diretorios: acesso total para o dono e grupo e nada para outros usuários.
+chmod -R 770 <diretorio>
+
+7) Criar um novo arquivo nessa pasta este arquivo recebera o nome de contato.html
+touch contato.html
+
+8) Inserir informações para este arquivo.
+echo "bla bla bla" > contato.html
+
+9) Mudar o dono e grupo do arquivo contato para ifsc
+sudo chown ifsc:ifsc contato.html
+
+10) Criar um backup compactado da pasta meusite e colocar no diretorio.
+tar -cvzf meusite.tar.gz ~/meusite
+
+11) Criar um novo usuário chamado info21
+sudo adduser info21
+
+12) Criar um grupo chamado informática
+sudo addgroup Informática
+
+13) Incluir o usuário info21 ao grupo informática
+sudo usermod −aG informática info21
+
+14) Definir permissão de administrador a esse usuário, info21
+sudo usermod −aG admin info21
+
+15) Alterar a data e hora do sistema para 14/03/2023 15:30
+sudo date 031415302023
+
+16) Realizar uma atualização completa no sistema sem confirmações.
+sudo apt update && sudo apt upgrade –y
+
+17) Consultar o espaço em disco direcionando a saida para um arquivo.txt na home do usuário
+df -h > arquivo.tsx
+
+18) Visualizar o conteúdo do arquivo.txt
+cat arquivo.txt
+
+19) Mover o arquivo de backup para a área de trabalho do usuário.
+mv <arquivo> ~/<arquivo>
+
+20) Agendar uma reinicialização do sistema para as 15:20
+shutdown -r 15:20
+
+21) Visualize o conteúdo de todos os arquivos contidos no diretório ~
+
+
+22) Limpar a tela do terminal
+clear
+
+23) Criar um alias para o comando ls exibir a cor
