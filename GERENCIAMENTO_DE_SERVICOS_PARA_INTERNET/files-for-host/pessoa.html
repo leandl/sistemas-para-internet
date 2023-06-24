@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		
+		<title>Form Pessoa</title>
+    <style>
+        body {
+					height: 100vh;
+					width: 100%;
+					background-color: #212121;
+
+
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+
+					gap: 3rem;
+        }
+
+				form {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+
+					gap: 1rem;
+				}
+
+        label {
+          color: rgb(118, 226, 154);
+        }
+    </style>
+  </head>
+  <body>
+    <form action="./processa_pessoa_post.php" method="post" accept-charset="utf-8">
+			<div class="form-group">
+				<label for="txtNome">Nome</label>
+				<input type="text" class="form-control" name="txtNome" id="txtNome">
+			</div>
+			
+			<div class="form-group">
+				<label for="txtEndereco">Endereço</label>
+				<input type="text" class="form-control" name="txtEndereco" id="txtEndereco">
+			</div>
+
+			<div class="form-group">
+				<label for="txtTelefone">Telefone</label>
+				<input type="text" class="form-control" name="txtTelefone" id="txtTelefone">
+			</div>
+
+			<div class="form-group">
+				<label for="txtCep">Cep</label>
+				<input type="text" class="form-control" name="txtCep" id="txtCep">
+			</div>
+
+			<div class="form-group">
+				<label for="txtNascimento">Data Nascimento</label>
+				<input type="text" class="form-control" name="txtNascimento" id="txtNascimento">
+			</div>
+
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
