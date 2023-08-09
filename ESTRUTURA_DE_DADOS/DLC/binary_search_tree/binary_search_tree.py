@@ -1,5 +1,6 @@
 # import json
 from node import Node
+from show_tree import ShowTree
 
 
 class BinarySearchTree:
@@ -50,31 +51,96 @@ class BinarySearchTree:
 
         return None
 
+    def pre_order(self, callback):
+        return self.__pre_order(self.__root, callback)
+
+    def __pre_order(self, node, callback):
+        if node is None:
+            return;
+
+        callback(node)
+        self.__pre_order(node.left, callback)
+        self.__pre_order(node.right, callback)
 
 
-    def __str__(self) -> str:
+
+    def in_order(self, callback):
+        return self.__in_order(self.__root, callback)
+
+    def __in_order(self, node, callback):
+        if node is None:
+            return;
+
+        self.__in_order(node.left, callback)
+        callback(node)
+        self.__in_order(node.right, callback)
+
+
+    def post_order(self, callback):
+        return self.__post_order(self.__root, callback)
+
+    def __post_order(self, node, callback):
+        if node is None:
+            return;
+
+        self.__post_order(node.left, callback)
+        callback(node)
+        self.__post_order(node.right, callback)
+
+
+    def show_graph(self):
         if not self.__root:
             return ""
 
         
-
-        return self.__show_graph(self.__root)
+        show_tree = ShowTree()
+        return show_tree.display_tree(self.__root)
             
         # return json.dumps(self.__root.values(), indent=4)
 
-
-    def __show_graph(self, current_node):
-        str_graph = ""
-
-        if current_node.left:
-            left_value = current_node.left.value
-            str_sub_graph = self.__show_graph(current_node.left)
-            str_graph += f"{current_node.value} -> {left_value}" + "\n" + str_sub_graph + "\n"
-
-        if current_node.right:
-            right_value = current_node.right.value
-            str_sub_graph = self.__show_graph(current_node.right)
-            str_graph += f"{current_node.value} -> {right_value}" + "\n" + str_sub_graph + "\n"
+    def __min_node(self, node):
+        if node is None:
+            return None
+        
+        current = node
+        while current.left is not None: 
+            current = current.left
+        
+        return current;
 
 
-        return str_graph
+    def remove(self, value):
+        self.__root = self.__remove_node(self.__root, value)
+
+    
+    def __remove_node(self, node, value):
+        if node is None:
+            return None
+        
+
+        if value < node.value:
+            node.left = self.__remove_node(node.left, value)
+            return node
+
+        if value > node.value:
+            node.right = self.__remove_node(node.right, value)
+            return node
+
+        
+        if node.left is None and node.right is None:
+            return None
+
+        if node.left is None or node.right is None:
+            return node.right if node.left is None else node.left
+
+        
+
+        aux = self.__min_node(node.right);
+        aux_value = aux.value
+
+        result_remove_node = self.__remove_node(node.right, aux_value)
+
+        new_node = Node(aux_value)
+        new_node.left = node.left
+        new_node.right = result_remove_node
+        return new_node;

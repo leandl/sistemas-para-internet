@@ -1,18 +1,17 @@
+import random
 from binary_search_tree import BinarySearchTree
 
-
 b = BinarySearchTree()
+list_values = []
+for i in range(0, 7):
+    value = random.randint(0, 30)
+    b.add(value)
+    list_values.append(value)
 
-b.add(17)
-b.add(13)
-b.add(31)
-b.add(22)
-b.add(14)
-b.add(36)
-b.add(242)
-b.add(1)
-b.add(19)
-b.add(20)
+b.show_graph()
+
+b.remove(list_values[2])
+
+b.show_graph()
 
 
-print(b.search(13).values())
