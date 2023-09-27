@@ -1,0 +1,3 @@
+BOARD_ROW = 3
+BOARD_COL = 3
+WHITE_SPACE = None
