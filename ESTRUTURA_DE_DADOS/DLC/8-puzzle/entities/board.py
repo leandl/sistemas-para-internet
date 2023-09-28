@@ -1,4 +1,5 @@
 import copy
+from typing import List
 from config import WHITE_SPACE, BOARD_ROW, BOARD_COL
 
 BOARD_DIRECTIONS = [
@@ -34,7 +35,7 @@ class Board:
             for board_col, cell in enumerate(ROW):
                 yield board_row, board_col, cell
 
-    def next_boards(self):
+    def next_boards(self) -> List["Board"]:
         position_row = None
         position_col = None
 
@@ -66,3 +67,6 @@ class Board:
             next_boards.append(new_board)
 
         return next_boards
+    
+    def __str__(self) -> str:
+        return self.__matrix.__str__()

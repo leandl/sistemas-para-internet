@@ -24,6 +24,29 @@ def manhattan(board_matrix):
     return value
 
 
+
+
+def out_of_place(board_matrix):
+    value = 0
+
+    for board_row, ROW in enumerate(board_matrix):
+        for board_col, cell in enumerate(ROW):
+            if cell == WHITE_SPACE:
+                continue
+
+            final_board_row, final_board_col = get_index_in_final_board(cell)
+            d = abs(board_row - final_board_row) + abs(board_col - final_board_col)
+            value += 0 if d == 0 else 1
+
+    return value
+
+
+heuristic = {
+    "manhattan": manhattan,
+    "out_of_place": out_of_place
+}
+
+
 def generate_final_board():
     last_index_row = BOARD_ROW - 1
     last_index_col = BOARD_COL - 1
@@ -42,15 +65,21 @@ def generate_initial_board(final_board: "Board", MOVES = 50):
     BOARD_PASSED = [final_board]
     current_board = final_board
     
-    for _ in range(0, MOVES):
+    moves = 0
+    for m in range(0, MOVES):
+        
         boards = [ board for board in current_board.next_boards() if board not in BOARD_PASSED ]
         for board in boards:
             BOARD_PASSED.append(board)
 
         if len(boards) == 0:
             break
-
+        
+        moves += 1
         board = random.choice(boards)
         current_board = board
+
+    
+    print(f"Realizado {moves} movimentos")
     
     return current_board
