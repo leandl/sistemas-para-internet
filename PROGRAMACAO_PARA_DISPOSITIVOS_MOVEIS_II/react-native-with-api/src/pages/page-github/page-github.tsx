@@ -1,10 +1,9 @@
 import { Image, StyleSheet, Text, View, FlatList } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 
-import { GithubApiService, RepositoryGithub, UserGithub } from "../services/github-api-service";
-import { GithubApiServiceError } from "../errors/github-api-service-error";
+import { GithubApiService, RepositoryGithub, UserGithub } from "../../services/github-api-service";
+import { GithubApiServiceError } from "../../utils/errors/github-api-service-error";
 import { RepositoryCard } from "./components/repository-card";
-import { RepositoryCardSkeleton } from "./components/repository-card.skeleton";
 import { PageGithubSkeleton } from "./page-github.skeleton";
 import { PageGithubError } from "./page-github.error";
 
@@ -22,12 +21,6 @@ type User = {
 
 type PageGithubProps = {
   username: string;
-}
-
-async function sleep(n: number) {
-  return new Promise((resolver) => {
-    setTimeout(resolver, n * 1000)
-  })
 }
 
 export function PageGithub({ username }: PageGithubProps) {

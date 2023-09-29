@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { PageGithub } from './src/pages/page-github';
+import { PageGithub } from './src/pages/page-github/page-github'
 
 const queryClient = new QueryClient()
 
@@ -24,3 +24,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#212121',
   },
 });
+
+

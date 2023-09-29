@@ -32,29 +32,22 @@ export function generateNewColor() {
   return hexColorRep;
 }
 
-export function shadeColor(color: string, percent: any) {
-  let R = parseInt(color.substring(1, 3), 16);
-  let G = parseInt(color.substring(3, 5), 16);
-  let B = parseInt(color.substring(5, 7), 16);
-
-  const RNumber = (R * (100 + percent)) / 100;
-  const GNumber = (G * (100 + percent)) / 100;
-  const BNumber = (B * (100 + percent)) / 100;
-  R = parseInt(RNumber.toString());
-  G = parseInt(GNumber.toString());
-  B = parseInt(BNumber.toString());
-
-  R = R < 255 ? R : 255;
-  G = G < 255 ? G : 255;
-  B = B < 255 ? B : 255;
-
-  R = Math.round(R);
-  G = Math.round(G);
-  B = Math.round(B);
-
-  let RR = R.toString(16).length == 1 ? "0" + R.toString(16) : R.toString(16);
-  let GG = G.toString(16).length == 1 ? "0" + G.toString(16) : G.toString(16);
-  let BB = B.toString(16).length == 1 ? "0" + B.toString(16) : B.toString(16);
-
-  return "#" + RR + GG + BB;
+export function pickTextColorBasedOnBgColorAdvanced(
+  bgColor: string,
+  lightColor: string,
+  darkColor: string
+) {
+  const color = bgColor.startsWith("#") ? bgColor.substring(1, 7) : bgColor;
+  const r = parseInt(color.substring(0, 2), 16); // hexToR
+  const g = parseInt(color.substring(2, 4), 16); // hexToG
+  const b = parseInt(color.substring(4, 6), 16); // hexToB
+  const uicolors = [r / 255, g / 255, b / 255];
+  const c = uicolors.map((col) => {
+    if (col <= 0.03928) {
+      return col / 12.92;
+    }
+    return Math.pow((col + 0.055) / 1.055, 2.4);
+  });
+  const L = 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  return L > 0.179 ? darkColor : lightColor;
 }

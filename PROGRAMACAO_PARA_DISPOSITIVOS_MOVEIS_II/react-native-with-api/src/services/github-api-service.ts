@@ -1,4 +1,4 @@
-import { GithubApiServiceError } from "../errors/github-api-service-error";
+import { GithubApiServiceError } from "../utils/errors/github-api-service-error";
 import { HttpCode } from "../utils/http-code";
 
 export type UserGithub = {

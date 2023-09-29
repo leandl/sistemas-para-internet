@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     paddingTop: 12,
     minWidth: "100%",
-    width: 500,
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center"
   },
   name: {
     backgroundColor: "#777",

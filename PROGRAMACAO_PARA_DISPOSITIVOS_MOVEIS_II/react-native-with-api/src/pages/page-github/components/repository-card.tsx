@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
-import { shadeColor, generateNewColor } from "../../utils/generate-color";
+import { generateNewColor, pickTextColorBasedOnBgColorAdvanced } from "../../../utils/generate-color";
+import { memo } from "../../../utils/memo";
 
 type RepositoryCardProps = {
   name: string;
@@ -16,9 +17,11 @@ const colorTag: Record<string, string> = {
   "PHP": "#CF54E6"
 }
 
+const getColorTag = memo((language: string | null) => (language && colorTag[language]) ?? generateNewColor());
+
 export function RepositoryCard({ name, description, language }: RepositoryCardProps) {
-  const colorRGB = (language && colorTag[language]) ?? generateNewColor();
-  const colorDarkRGB = shadeColor(colorRGB, -100);
+  const colorRGB = getColorTag(language);
+  const fontColor = pickTextColorBasedOnBgColorAdvanced(colorRGB, "#FFF", "#000");
 
   return (
     <View style={styles.container}>
@@ -29,7 +32,7 @@ export function RepositoryCard({ name, description, language }: RepositoryCardPr
           <View style={{ ...styles.tag, backgroundColor: colorRGB, }}>
             <Text style={{
               backgroundColor: colorRGB,
-              color: colorDarkRGB
+              color: fontColor
             }}>
               {language}
             </Text>
@@ -48,7 +51,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     borderColor: "#ccc",
     borderTopWidth: 1,
-    paddingTop: 12
+    paddingTop: 12,
+    alignItems: "center"
   },
   name: {
     fontSize: 20,
@@ -71,9 +75,5 @@ const styles = StyleSheet.create({
   },
   textTag: {
     fontSize: 10,
-
   },
-  colorWhite: {
-    color: "#fff"
-  }
 });
