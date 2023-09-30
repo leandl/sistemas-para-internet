@@ -1,16 +1,24 @@
 from entities.board import Board
-from entities.ordered_vertor import OrderedVector
-from utils import generate_final_board, generate_initial_board, heuristic
+from a_star_algorithm import AStarAlgorithm
+from utils import generate_initial_board, MATRIX_FINAL_BOARD
+from heuristic import heuristic
 
-# h = heuristic["out_of_place"]
+h = lambda _board: 0
+h = heuristic["out_of_place"]
 h = heuristic["manhattan"]
 
-MATRIX_FINAL_BOARD = generate_final_board()
 FINAL_BOARD = Board(MATRIX_FINAL_BOARD, h)
-initial_board = generate_initial_board(FINAL_BOARD, MOVES=7)
+initial_board = generate_initial_board(FINAL_BOARD, MOVEMENTS=20)
+# initial_board = Board(
+#     heuristic=h,
+#     matrix=[
+#         [2, 6, 4],
+#         [1, "_", 8],
+#         [7, 3, 5]
+#     ]
+# )
 
-print(initial_board.get_matrix())
-print(FINAL_BOARD.get_matrix())
+
 
 def compare_board(b1: "Board", b2: "Board"):
     if b1.get_weight() == b2.get_weight():
@@ -26,43 +34,22 @@ def print_matrix(m):
         print(" " + " ".join([str(col) for col in row]))
     print("-=-=-=-")
 
-board_passed = [initial_board]    
-parents = {}
-orderedBoards = OrderedVector(10_000, compare_board)
-orderedBoards.insert(initial_board)
-current_board = None
+print("Board Inicial")
+print_matrix(initial_board.get_matrix())
+print("")
+print("Board Final")
+print_matrix(FINAL_BOARD.get_matrix())
 
-while not len(orderedBoards) == 0:
-    current_board = orderedBoards.pop(0)
-    if current_board == FINAL_BOARD:
-        break
+print("")
 
-    boards = current_board.next_boards()
-    boards = [x for x in boards if x not in board_passed]
-    for board in boards:
-        board_passed.append(board)
-        parents[str(board)] = current_board
-        orderedBoards.insert(board)
-   
-if not current_board == FINAL_BOARD:
+result = AStarAlgorithm.execute(initial_board, FINAL_BOARD, compare_board)
+if result is None:
     print("Não foi possivel resolver")
 else:
-    path = [current_board]
-    while not parents.get(str(current_board), None) == None:
-        parent = parents[str(current_board)]
-        path.insert(0, parent)
-        current_board = parent
+    path, visited, movements = result
         
-    # for p in path:
-    #     print_matrix(p.get_matrix())
+    for p in path:
+        print_matrix(p.get_matrix())
 
-    print("Visitados: " + str(len(board_passed)))
-    print("Moves: " + str(len(path) -1) )
-# # # for x in list_boards:
-# # #     print(x)
-
-
-
-# # # print(manhattan(board))
-
-# print(generate_options(board))
+    print(f"Visitados: {visited}")
+    print(f"Moves: {movements}")
