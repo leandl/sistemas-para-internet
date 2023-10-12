@@ -11,13 +11,13 @@ def generate_initial_board(final_board: "Board", MOVEMENTS = 50):
     for _m in range(0, MOVEMENTS):
         
         boards = [ board for board in current_board.next_boards() if board not in BOARD_PASSED ]
-        for board in boards:
-            BOARD_PASSED.append(board)
+        
 
         if len(boards) == 0:
             break
         
         board = random.choice(boards)
+        BOARD_PASSED.append(board)
         current_board = board
         movements += 1
 

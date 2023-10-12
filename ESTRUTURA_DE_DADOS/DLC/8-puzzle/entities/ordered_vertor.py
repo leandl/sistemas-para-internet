@@ -26,7 +26,7 @@ class OrderedVector:
         if new_index_last_element == self.__max_elements:
             raise OrderedVectorException("Maximum elements in OrderedVector")
 
-        index_first_more = self.__findFirstMore(new_value)
+        index_first_more = self.__find_first_more(new_value)
         if index_first_more == -1 or index_first_more == new_index_last_element:
             self.__elements[new_index_last_element] = new_value
             self.__index_last_element = new_index_last_element
@@ -39,7 +39,7 @@ class OrderedVector:
         self.__elements[index_first_more] = new_value
         self.__index_last_element = new_index_last_element
         
-    def __findFirstMore(self, value: int):
+    def __find_first_more(self, value: int):
         if self.__index_last_element == -1:
             return -1
 
