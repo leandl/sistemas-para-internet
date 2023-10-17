@@ -14,15 +14,13 @@ heuristic = Heuristic(MATRIX_FINAL_BOARD)
 
 h = lambda _board: 0
 h = heuristic.out_of_place
+h = heuristic.greater_distance
 h = heuristic.manhattan
 
+
 FINAL_BOARD = Board(MATRIX_FINAL_BOARD, h)
-initial_board = generate_initial_board(FINAL_BOARD, MOVEMENTS=10)
-# initial_board = Board([
-#     ["_", 5, 7],
-#     [4, 1, 2],
-#     [3, 6, 8]
-# ], h)
+initial_board = generate_initial_board(FINAL_BOARD, MOVEMENTS=20)
+# initial_board = Board([['_', 3, 8], [4, 6, 5], [1, 7, 2]], h)
 
 
 def print_matrix(m):
