@@ -4,12 +4,12 @@ class Item:
         self.__volume = volume
         self.__price = price
 
-    def get_name(self):
+    def get_name(self) -> str:
         return self.__name
     
-    def get_volume(self):
+    def get_volume(self) -> float:
         return self.__volume
     
 
-    def get_price(self):
+    def get_price(self) -> float:
         return self.__price

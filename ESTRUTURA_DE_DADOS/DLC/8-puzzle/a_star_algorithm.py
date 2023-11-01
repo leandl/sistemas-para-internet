@@ -33,6 +33,7 @@ class AStarAlgorithm:
             current_board = parent
 
 
-        visited = len(board_passed)
+        visited = len(board_passed) - len(ordered_boards)
+        pending = len(ordered_boards)
         movements = len(path) -1
-        return path, visited, movements
+        return path, visited, pending, movements

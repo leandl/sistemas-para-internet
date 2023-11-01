@@ -50,6 +50,13 @@ class OrderedVector:
         return self.__index_last_element + 1
         
 
+    def get(self, index_item):
+        if index_item < 0 or index_item > self.__index_last_element:
+            return None
+        
+        return self.__elements[index_item]
+
+
 
     def pop(self, index_item_remove: int):
         if index_item_remove < 0 or index_item_remove > self.__index_last_element:
