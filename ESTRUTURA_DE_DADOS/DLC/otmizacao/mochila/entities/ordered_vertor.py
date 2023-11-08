@@ -73,5 +73,12 @@ class OrderedVector:
     
     def __len__(self):
         return self.__index_last_element + 1
+    
+    def __iter__(self):
+        for data in self.__elements:
+            if data is None:
+                continue
+            
+            yield data
 
 
