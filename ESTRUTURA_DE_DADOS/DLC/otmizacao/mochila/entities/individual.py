@@ -1,5 +1,8 @@
 import random
+from typing import List, Tuple
+
 from .item import Item
+from config import Config
 
 random_zero_or_one = lambda _x: random.choice([0, 1])
 random_min_to_max = lambda min, max: random.randrange(min, max)
@@ -8,10 +11,10 @@ class Individual:
 
     def __init__(
         self,
-        items: list["Item"],
+        items: List["Item"],
         volume_limit: int,
         generation: int = 0,
-        chromossomes: list[int] = None
+        chromossomes: List[int] = None
     ) -> None:
         self.__items = items
         self.__generation = generation
@@ -25,7 +28,7 @@ class Individual:
         self.__score = self.__generate_score(volume_limit, price, volume)    
 
         
-    def __generate_data_individual(self, items: list["Item"], chromossomes: list[int]) -> tuple[float, float]:
+    def __generate_data_individual(self, items: List["Item"], chromossomes: List[int]) -> Tuple[float, float]:
         volume = 0
         price = 0
 
@@ -44,7 +47,7 @@ class Individual:
         
         return price
     
-    def get_chromossomes(self) -> list[int]:
+    def get_chromossomes(self) -> List[int]:
         return self.__chromossomes
     
     def get_score(self) -> float:
@@ -56,7 +59,7 @@ class Individual:
     def get_volume(self) -> float:
         return self.__volume
     
-    def crossover(self, other_individual: "Individual") -> tuple["Individual", "Individual"]:
+    def crossover(self, other_individual: "Individual") -> Tuple["Individual", "Individual"]:
         index_crossover = random_min_to_max(0, len(self.__items))
 
         current_chromossomes = self.__chromossomes
@@ -80,11 +83,11 @@ class Individual:
             )
         )
     
-    def mutation(self, chromossomes: list[int]) -> list[int]:
-        MUTATION_RATE = 20
+    def mutation(self, chromossomes: List[int]) -> List[int]:
+
         
         for index, d in enumerate(chromossomes):
-            if MUTATION_RATE < random_min_to_max(1, 101):
+            if Config.MUTATION_RATE < random_min_to_max(1, 101):
                 continue
             
             chromossomes[index] = 1 if d == 0 else 0

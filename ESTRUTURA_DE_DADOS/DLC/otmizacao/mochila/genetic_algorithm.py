@@ -1,5 +1,6 @@
 import random
 import math
+from typing import List
 
 from items import items
 from utls import compare_item, revert_compare
@@ -12,18 +13,18 @@ BAG_VOLUME = 10
 class GeneticAlgorithm:
 
     @staticmethod
-    def execute(amount_individual, n_generation):
+    def execute(amount_individual, n_generation) ->List["Individual"]:
     
+        best_individuals = []
 
-        best_individuals = OrderedVector(n_generation + 1, revert_compare(compare_item))
-        population = OrderedVector(amount_individual * n_generation, revert_compare(compare_item))
+        population = OrderedVector(amount_individual, revert_compare(compare_item))
 
         for _ in range(amount_individual):
             population.insert(Individual(items, BAG_VOLUME))
 
         
         for _ in range(n_generation):
-            best_individuals.insert(population.get(0))
+            best_individuals.append(population.get(0))
             new_population = OrderedVector(amount_individual, revert_compare(compare_item))
             score = GeneticAlgorithm.__score_population(population)
 
@@ -41,8 +42,8 @@ class GeneticAlgorithm:
 
             population = new_population
         
-        best_individuals.insert(population.get(0))
-        return best_individuals.get(0)
+        best_individuals.append(population.get(0))
+        return best_individuals
     
     @staticmethod
     def __score_population(population: "OrderedVector") -> float:
