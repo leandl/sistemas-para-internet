@@ -4,23 +4,22 @@ from typing import List
 
 from items import items
 from utls import compare_item, revert_compare
+from config import Config
 
 from entities.individual import Individual
 from entities.ordered_vertor import OrderedVector
 
-BAG_VOLUME = 10
-
 class GeneticAlgorithm:
 
     @staticmethod
-    def execute(amount_individual, n_generation) ->List["Individual"]:
+    def execute(amount_individual, n_generation) -> List["Individual"]:
     
         best_individuals = []
 
         population = OrderedVector(amount_individual, revert_compare(compare_item))
 
         for _ in range(amount_individual):
-            population.insert(Individual(items, BAG_VOLUME))
+            population.insert(Individual(items, Config.BAG_VOLUME_LIMIT))
 
         
         for _ in range(n_generation):

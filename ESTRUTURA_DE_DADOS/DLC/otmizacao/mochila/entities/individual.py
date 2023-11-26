@@ -3,6 +3,7 @@ from typing import List, Tuple
 
 from .item import Item
 from config import Config
+from crossovers import crossover_chromossomes
 
 random_zero_or_one = lambda _x: random.choice([0, 1])
 random_min_to_max = lambda min, max: random.randrange(min, max)
@@ -60,34 +61,32 @@ class Individual:
         return self.__volume
     
     def crossover(self, other_individual: "Individual") -> Tuple["Individual", "Individual"]:
-        index_crossover = random_min_to_max(0, len(self.__items))
-
         current_chromossomes = self.__chromossomes
         other_chromossomes = other_individual.get_chromossomes()
 
-        chromossomes_f1 = self.mutation(current_chromossomes[:index_crossover] + other_chromossomes[index_crossover:])
-        chromossomes_f2 = self.mutation(other_chromossomes[:index_crossover] + current_chromossomes[index_crossover:])
+        generate_crossover = crossover_chromossomes[Config.TYPE_CROSSOVER]
+        chromossomes_f1, chromossomes_f2 = generate_crossover(current_chromossomes, other_chromossomes)
 
         return (
             Individual(
                 self.__items,
                 self.__volume_limit,
                 self.__generation + 1,
-                chromossomes_f1
+                self.__mutation(chromossomes_f1)
             ),
             Individual(
                 self.__items,
                 self.__volume_limit,
                 self.__generation + 1,
-                chromossomes_f2
+                self.__mutation(chromossomes_f2)
             )
         )
     
-    def mutation(self, chromossomes: List[int]) -> List[int]:
+    def __mutation(self, chromossomes: List[int]) -> List[int]:
 
         
         for index, d in enumerate(chromossomes):
-            if Config.MUTATION_RATE < random_min_to_max(1, 101):
+            if Config.MUTATION_RATE < random_min_to_max(1, 1000):
                 continue
             
             chromossomes[index] = 1 if d == 0 else 0

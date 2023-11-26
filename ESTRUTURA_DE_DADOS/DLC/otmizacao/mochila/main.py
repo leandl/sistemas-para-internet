@@ -3,7 +3,6 @@ from genetic_algorithm import GeneticAlgorithm
 from config import Config
 
 
-
 def run(ax):
     best_individuals = GeneticAlgorithm.execute(
     Config.NUMBER_OF_INDIVIDUAL_BY_POPULATION,
