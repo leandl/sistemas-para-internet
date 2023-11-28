@@ -6,4 +6,4 @@ class Config:
 
     # INDIVIDUAL 
     MUTATION_RATE = 10
-    TYPE_CROSSOVER =  "center" # "two-pivots" # "random" # "center"
+    TYPE_CROSSOVER =  "two-pivots" # "random" # "center"

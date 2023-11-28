@@ -39,8 +39,6 @@ def run(ax, items):
 
 
 
-
-
 # tests_mutation = [1, 5, 10, 20, 50, 100] # escala 1/1000
 # fig, axes = plt.subplots(1, 6, figsize=(10, 5))
 # fig.suptitle(f"Testes de Mutação")
@@ -94,15 +92,16 @@ def run(ax, items):
 #     run(axes[index], items_default)
 
 
-tests_items = [items_5, items_10, items_default, items_all] 
-fig, axes = plt.subplots(1, 4, figsize=(10, 5))
-fig.suptitle(f"Testes com Números de Produtos")
-for index, items  in enumerate(tests_items):
-    count_items = len(items)
+# tests_items = [items_5, items_10, items_default, items_all] 
+# fig, axes = plt.subplots(1, 4, figsize=(10, 5))
+# fig.suptitle(f"Testes com Números de Produtos")
+# for index, items  in enumerate(tests_items):
+#     count_items = len(items)
 
-    axes[index].set_title(f"Números de Produtos: {count_items}")
-    axes[index].set_xlabel('Gerações')
-    axes[index].set_ylabel('Preço')
-    run(axes[index], items)
+#     axes[index].set_title(f"Números de Produtos: {count_items}")
+#     axes[index].set_xlabel('Gerações')
+#     axes[index].set_ylabel('Preço')
+#     run(axes[index], items)
 
+run(plt, items_default)
 plt.show()
