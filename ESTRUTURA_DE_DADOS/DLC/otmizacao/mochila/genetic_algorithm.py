@@ -2,7 +2,6 @@ import random
 import math
 from typing import List
 
-from items import items
 from utls import compare_item, revert_compare
 from config import Config
 
@@ -12,7 +11,7 @@ from entities.ordered_vertor import OrderedVector
 class GeneticAlgorithm:
 
     @staticmethod
-    def execute(amount_individual, n_generation) -> List["Individual"]:
+    def execute(items, amount_individual, n_generation) -> List["Individual"]:
     
         best_individuals = []
 

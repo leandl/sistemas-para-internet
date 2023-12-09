@@ -17,6 +17,20 @@ products = [
     ("Papel higienico", 3.24, 4.50),
     ("Sorvete", 1.00, 23.00),
     ("Creme de Leite", 0.50, 4.50),
+
+    ("Queijo", 2.25, 15.00),
+    ("Presunto", 2.10, 12.50),
+    ("Maionese", 1.20, 5.00),
+    ("Ketchup", 1.10, 3.75),
+    ("Mostarda", 1.05, 2.50),
+    ("Catchup", 1.20, 3.00),
+    ("Iogurte", 0.90, 4.00),
+    ("Suco de laranja", 2.50, 8.50),
+    ("Refrigerante", 1.75, 6.00),
+    ("Chocolate", 2.00, 7.50),
 ]
 
-items = [ Item(*p) for p in products ]
+items_all = [ Item(*p) for p in products ]
+items_5 = [ Item(*p) for p in products[:5] ]
+items_10 = [ Item(*p) for p in products[:10] ]
+items_default = [ Item(*p) for p in products[:16] ]
