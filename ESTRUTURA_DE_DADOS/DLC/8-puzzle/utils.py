@@ -43,10 +43,6 @@ def generate_final_board():
     return matrix
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 376b5d959a0253ff28f13ace391592d990a890b1
 def compare_board(b1: "Board", b2: "Board"):
     if b1.get_weight() == b2.get_weight():
         return 0
